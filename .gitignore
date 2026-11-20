@@ -1,0 +1,9 @@
+# 生成した動画・画像（容量が大きいためgit管理しない。URL/IDは04-assets.mdに残す）
+output/**/*.mp4
+output/**/*.mov
+output/**/*.png
+output/**/*.jpg
+output/**/*.jpeg
+output/**/*.webp
+output/**/*.wav
+output/**/*.mp3
