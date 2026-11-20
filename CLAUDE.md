@@ -32,6 +32,7 @@ SNS向けAI生成動画（縦型ショート）を作るためのリポジトリ
 6. 秘密情報（APIキー等）をファイルに書かない。
 
 ## 共有スキル（`.claude/skills/`）
+- `research-method`: 調査の手順・情報源・根拠の区別
 - `hook-patterns`: 冒頭3秒の型
 - `prompt-recipes`: 画像・動画プロンプトの型
 - `platform-specs`: SNS別の仕様
