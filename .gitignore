@@ -1,0 +1,29 @@
+# 素材・生成物（正本はGoogleドライブ）
+assets/
+outputs/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.mp4
+*.mov
+*.blend
+*.blend1
+
+# 認証情報
+.env
+.env.*
+*.pem
+*.key
+credentials*.json
+service-account*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS・エディタ
+.DS_Store
