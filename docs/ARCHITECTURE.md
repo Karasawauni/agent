@@ -11,7 +11,8 @@
 | 素材・`.blend`・完成物（正本） | Googleドライブ | スマホで確認できる |
 | Blenderの操作 | ローカルPC | 画面を見ながらの調整 |
 | Blenderのレンダリング | Modal（GPU） | ドライブから取得し、結果を戻す |
-| 1枚目の画像 | Adobe（Firefly） | Adobe MCP経由。画像生成の可否は未確認 |
+| 1枚目の画像 | Adobe Firefly（Pro Plus、**手動実行**） | 人がWebアプリで生成し、ドライブへ保存する。API・MCP・ブラウザ自動操作は使わない（下記） |
+| 画像の後処理 | Adobe MCP | 背景除去、リサイズなど。画像生成は不可 |
 | 動画生成 | Higgsfield（必要ならModal） | まずHiggsfieldで始める |
 | 認証情報 | Claude Codeの環境変数、Modal Secrets | GitHub Secretsは使わない |
 | AWS | 使わない | 必要になったら追加（Secrets Managerの学習など） |
@@ -19,7 +20,7 @@
 ## 基本の流れ
 1. ローカルのBlenderで構図を作り、`.blend`をドライブへ置く。
 2. Claude Codeに依頼し、Modalでレンダリングする。結果はドライブへ保存する。
-3. Fireflyで1枚目の画像を作る。
+3. （手動）Claudeが作ったプロンプトで、FireflyのWebアプリから1枚目の画像を生成し、ドライブの`frames/`へ保存する。
 4. Higgsfieldで動画にする。
 5. 完成物をドライブへ保存し、スマホで確認する。
 
@@ -99,7 +100,13 @@ Googleドライブ/
 ## 未確認・これからの作業
 1. ドライブがClaude Codeから読み書きできるか。
 2. ModalからドライブにアクセスするためのGoogle認証（サービスアカウント）。
-3. Adobe MCPでFireflyの画像生成ができるか。
 4. Modalのセットアップ（インストール、トークン、ネットワーク許可）。
 5. アタッチしたリポジトリの`CLAUDE.md`とスキルが、読み込まれるか。
 6. 作品リポジトリの名前。ドライブ内のサブフォルダの最終的な分け方。
+
+## Fireflyの扱い（確認済み）
+- Adobe MCP（Claudeコネクタ）は、テキストからの画像・動画生成を公開していない（Adobe社員の公式回答、2026-09-02）。
+- Firefly APIは、Pro Plusでは使えなかった（Developer Consoleで利用できず、ユーザー確認済み）。
+- ブラウザの自動操作は、Adobeの規約（自動化・スクリプト処理の禁止、アカウント無効化の可能性）に抵触しうるため使わない。
+- そのため、Fireflyでの生成は**手動**とする。動画化など、自動化する部分はHiggsfieldで行う。
+- AdobeがMCPやAPIで個人プランに生成を開放したら、再検討する。
