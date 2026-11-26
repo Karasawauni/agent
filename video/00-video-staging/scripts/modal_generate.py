@@ -28,6 +28,7 @@ app = modal.App("image-gen-with-refs")
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
+    .apt_install("git")
     .pip_install(
         "torch",
         "transformers",
