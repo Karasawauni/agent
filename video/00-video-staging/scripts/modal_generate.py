@@ -80,6 +80,9 @@ class Generator:
         from PIL import Image
 
         refs = [Image.open(io.BytesIO(b)).convert("RGB") for b in ref_images]
+        if not refs:
+            # 編集モデルは入力画像が必須のため、参照なしの時は無地キャンバスから生成する
+            refs = [Image.new("RGB", (832, 1024), (200, 200, 200))]
         kwargs = dict(
             prompt=prompt,
             negative_prompt=negative,
