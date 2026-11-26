@@ -31,6 +31,7 @@ image = (
     .apt_install("git")
     .pip_install(
         "torch",
+        "torchvision",
         "transformers",
         "accelerate",
         "safetensors",
